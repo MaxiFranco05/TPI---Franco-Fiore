@@ -19,8 +19,11 @@ def read_csv():
                 return "Error"
     return paises
 
-def search_pais(df, pais_busc):
+def search_pais(df: list, pais_busc: str):
     for item in df:
         if pais_busc.lower() == item["nombre"].lower():
             return f"País: {item["nombre"]}\nPoblación: {item["poblacion"]}\nSuperficie: {item["superficie"]}km2\nContinente: {item["continente"]}"
         return "⚠️ País no encontrado"
+    
+def filtro(df:list, tipo:str, value:str):
+    pass
