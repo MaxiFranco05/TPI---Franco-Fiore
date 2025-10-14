@@ -91,3 +91,50 @@ def ordenar_paises(df:list, tipo: str, orden: bool) -> list:
     """
 
     return df.sort(key = lambda x: x[tipo], reverse = orden)
+
+
+def mostrar_estadisticas(paises):
+
+
+    if len(paises) == 0:
+        print("No hay datos cargados.")
+        return
+
+
+    total_poblacion = 0
+    total_superficie = 0
+
+    for p in paises:
+        total_poblacion += p["poblacion"]
+        total_superficie += p["superficie"]
+
+    promedio_poblacion = total_poblacion / len(paises)
+    promedio_superficie = total_superficie / len(paises)
+
+
+    pais_mayor = paises[0]
+    pais_menor = paises[0]
+
+    for p in paises:
+        if p["poblacion"] > pais_mayor["poblacion"]:
+            pais_mayor = p
+        if p["poblacion"] < pais_menor["poblacion"]:
+            pais_menor = p
+
+
+    cantidad_por_continente = {}
+    for p in paises:
+        cont = p["continente"]
+        if cont in cantidad_por_continente:
+            cantidad_por_continente[cont] += 1
+        else:
+            cantidad_por_continente[cont] = 1
+
+
+    print("\n--- Estadísticas ---")
+    print(f"Promedio de población: {promedio_poblacion:,.2f}")
+    print(f"Promedio de superficie: {promedio_superficie:,.2f}")
+    print(f"País con mayor población: {pais_mayor['nombre']} → {pais_mayor['poblacion']:,}")
+    print(f"País con menor población: {pais_menor['nombre']} → {pais_menor['poblacion']:,}")
+    print("\nCantidad de países por continente:")
+    
