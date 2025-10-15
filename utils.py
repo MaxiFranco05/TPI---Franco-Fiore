@@ -4,10 +4,11 @@ def menu() -> str:
     """
     Devuelve la lista de opciones.
     """
-    opciones = ("Cargar datos desde CSV", "Buscar país", "Filtrar países", "Ordenar países", "Mostrar estadísticas", "Salir")
-    print("\n--- Gestión de Datos de Países ---")
+    opciones = ("Buscar país", "Filtrar países", "Ordenar países", "Mostrar estadísticas", "Salir")
+    print("\n" + "="*10 + " Gestión de Datos de Países " + "="*10 )
     for i, opcion in enumerate(opciones):
         print(f"{i+1}. {opcion}")
+    print("="*50)
 
 
 def read_csv(path: str) -> list:
@@ -48,8 +49,8 @@ def search_pais(df: list, pais_busc: str) -> str:
     """
     for item in df:
         if pais_busc.lower() == item["nombre"].lower():
-            return f"País: {item["nombre"]}\nPoblación: {item["poblacion"]} habitantes\nSuperficie: {item["superficie"]}km2\nContinente: {item["continente"]}"
-        return "⚠️ País no encontrado"
+            return f"País: {item["nombre"]}\nPoblación: {item["poblacion"]} habitantes\nSuperficie: {item["superficie"]} km²\nContinente: {item["continente"]}"
+    return "⚠️ País no encontrado"
     
 def filtrar_paises(df:list, tipo:str, value:str | list) -> list:
     """Filtra los paises por tipo (continente, poblacion, superficie).
@@ -66,7 +67,7 @@ def filtrar_paises(df:list, tipo:str, value:str | list) -> list:
 
     if tipo == "continente":
         for item in df:
-            if item["continente"] == value:
+            if item["continente"].replace("") == value.title():
                 paises_filtrados.append(item)
 
     else:
@@ -77,7 +78,10 @@ def filtrar_paises(df:list, tipo:str, value:str | list) -> list:
     if len(paises_filtrados) == 0:
         return "⚠️ Ningun país encontrado bajo el filtrado..."
     else:
-        return paises_filtrados
+        for i in paises_filtrados:
+            print(f"País: {i['nombre']} | Población: {i['poblacion']} | Superficie: {i['superficie']} | Continente: {i['continente']}")
+        input("Presione Enter para continuar...")
+        return
 
 def ordenar_paises(df:list, tipo: str, orden: bool) -> list:
     """Ordenar paises por nombre, población o superficie. 
@@ -93,7 +97,7 @@ def ordenar_paises(df:list, tipo: str, orden: bool) -> list:
     return df.sort(key = lambda x: x[tipo], reverse = orden)
 
 
-def mostrar_estadisticas(paises):
+def mostrar_estadisticas(paises: list):
 
 
     if len(paises) == 0:
@@ -137,4 +141,13 @@ def mostrar_estadisticas(paises):
     print(f"País con mayor población: {pais_mayor['nombre']} → {pais_mayor['poblacion']:,}")
     print(f"País con menor población: {pais_menor['nombre']} → {pais_menor['poblacion']:,}")
     print("\nCantidad de países por continente:")
+    return
     
+def eliminar_tildes(cadena):
+    tildes = (
+        ("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"),
+        ("Á", "A"), ("É", "E"), ("Í", "I"), ("Ó", "O"), ("Ú", "U")
+    )
+    for a, b in tildes:
+        cadena_sin_tildes = cadena.replace(a, b)
+    return cadena_sin_tildes
