@@ -8,13 +8,13 @@ def filter(data: list):
             str: Paises filtrados.
     """
     filters = ("continente", "poblacion", "superficie")
-    filter_type = input(f"Selecciona la opción por la cual filtrar {filters}: ")
-    if filter_type.lower().strip() not in filters:
+    filter_type = input(f"Selecciona la opción por la cual filtrar {filters}: ").lower().strip()
+    if filter_type not in filters:
         return print("⚠️   Su opción no se encuentra entre los filtros.")
-    if filter_type.lower().strip() == "continente":
+    if filter_type == "continente":
         continents = ("asia", "america del sur", "america del norte", "africa", "europa")
-        filter_option = input(f"Ingrese el continente ({', '.join(i.title() for i in continents)}): ")
-        if eliminar_tildes(filter_option.lower().strip()) in continents: 
+        filter_option = input(f"Ingrese el continente ({', '.join(i.title() for i in continents)}): ").lower().strip()
+        if eliminar_tildes(filter_option) in continents: 
             print("-"*14,f"Paises filtrados por {filter_option.title()}","-"*14)
             filter_paises(data, filter_type, filter_option)
             print("-"*50)
@@ -29,11 +29,11 @@ def filter(data: list):
             except ValueError:
                 return print("⚠️   Valor inválido.")
         if filter_value[1] > filter_value[0] >= 0:
-            print("-"*14,f"Paises filtrados por {filter_type.title()} (entre {filter_value[0]} y {filter_value[1]})","-"*14)
+            print("-"*14,f"Paises filtrados por {filter_type.title()} (entre {filter_value[0]:,} y {filter_value[1]:,})","-"*14)
             filter_paises(data, filter_type, filter_value)
-            print("-"*50)
+            print("-"*80)
         else:
-            return print("⚠️   Valores inválidos. (Primer número mayor al segundo)")
+            return print("⚠️   Valores inválidos.")
 
 
 def filter_paises(data:list, tipo:str, value:str | list) -> list:
@@ -61,5 +61,5 @@ def filter_paises(data:list, tipo:str, value:str | list) -> list:
         return print("⚠️   Ningun país encontrado bajo el filtrado...")
     else:
         for i in paises_filtrados:
-            print(f"País: {i['nombre']} | Población: {i['poblacion']:,} | Superficie: {i['superficie']:,} | Continente: {i['continente']}")
+            print(f"📍  País: {i['nombre']} | 👨‍👩‍👧‍👦  Población: {i['poblacion']:,} | 🗺️  Superficie: {i['superficie']:,} | 🌎  Continente: {i['continente']}")
         return

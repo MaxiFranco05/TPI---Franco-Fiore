@@ -11,7 +11,7 @@ def menu() -> str:
 
 def select_option():
     """
-    Solicita la opción.
+    Solicita la opción.\n
     Retorna:\n
     int: Número de la opción elegida.
     """

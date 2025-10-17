@@ -33,10 +33,10 @@ def estadisticas(data: list):
             cant_por_continente[cont] = 1
 
     print("-"*15,"Estadísticas","-"*15)
-    print(f"Promedio de población: {prom_pobl:,.2f}")
-    print(f"Promedio de superficie: {prom_superf:,.2f}")
-    print(f"País con mayor población: {pais_mayor['nombre']} → {pais_mayor['poblacion']:,} habitantes.")
-    print(f"País con menor población: {pais_menor['nombre']} → {pais_menor['poblacion']:,} habitantes.")
-    print(f"Cantidad de países por continente:")
-    print("-"*50)
+    print(f"👨‍👩‍👧‍👦  Promedio de población: {prom_pobl:,.2f}")
+    print(f"🗺️  Promedio de superficie: {prom_superf:,.2f}")
+    print(f"👨‍👩‍👧‍👦  País con mayor población: {pais_mayor['nombre']} → {pais_mayor['poblacion']:,} habitantes.")
+    print(f"👨‍👩‍👧‍👦  País con menor población: {pais_menor['nombre']} → {pais_menor['poblacion']:,} habitantes.")
+    print(f"🌎  Cantidad de países por continente:")
+    print("-"*45)
     return

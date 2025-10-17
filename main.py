@@ -1,4 +1,3 @@
-from time import sleep
 from utils.menu import menu, select_option
 from utils.reader import read_csv
 from utils.searcher import search_pais

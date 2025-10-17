@@ -1,11 +1,10 @@
 from utils.utils import eliminar_tildes
 
 def sorter(data:list):
-    """Ordenar paises por nombre, población o superficie. 
-
-    Parámetros:
-        data (list): Lista de paises en diccionarios.\n
-    Retorna:
+    """Ordenar paises por nombre, población o superficie.\n
+    Parámetros:\n
+        data (list): Lista de paises en diccionarios.
+    Retorna:\n
         list: Lista de países ordenados.
     """
     sorters = ("nombre","poblacion","superficie")
@@ -21,8 +20,7 @@ def sorter(data:list):
 
 
 def sort_paises(data:list, tipo: str, orden: bool) -> list:
-    """Ordenar paises por nombre, población o superficie. 
-
+    """Ordenar paises por nombre, población o superficie.\n
     Parámetros:\n
         data (list): Lista de paises en diccionarios.
         tipo (str): Tipo de dato para ordenar.
@@ -33,5 +31,5 @@ def sort_paises(data:list, tipo: str, orden: bool) -> list:
     orden = False if orden in ("asc","ascendente") else True
 
     for i in sorted(data, key = lambda x: x[tipo], reverse = orden):
-        print(f"País: {i['nombre']} | Población: {i['poblacion']:,} | Superficie: {i['superficie']:,} | Continente: {i['continente']}")
+        print(f"📍  País: {i['nombre']} | 👨‍👩‍👧‍👦  Población: {i['poblacion']:,} | 🗺️  Superficie: {i['superficie']:,} | 🌎  Continente: {i['continente']}")
     return
