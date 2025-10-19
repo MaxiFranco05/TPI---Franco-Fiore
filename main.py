@@ -3,7 +3,7 @@ from utils.reader import read_csv
 from utils.searcher import search_pais
 from utils.filter import filter
 from utils.sorter import sorter
-from utils.statistics import estadisticas
+from utils.statistics import statistics
 
 def main():
     while True:
@@ -19,7 +19,7 @@ def main():
             case 3:
                 sorter(data_csv)
             case 4:
-                estadisticas(data_csv)
+                statistics(data_csv)
             case 5:
                 print("👋   Gracias por usar el sistema de paises. ¡Hasta pronto!")
                 break 

@@ -1,4 +1,4 @@
-def estadisticas(data: list):
+def statistics(data: list):
     """Devuelve las estadisticas mundiales. 
         Parámetros:\n
             data (list): Lista de paises en diccionarios.
@@ -37,6 +37,6 @@ def estadisticas(data: list):
     print(f"🗺️  Promedio de superficie: {prom_superf:,.2f}")
     print(f"👨‍👩‍👧‍👦  País con mayor población: {pais_mayor['nombre']} → {pais_mayor['poblacion']:,} habitantes.")
     print(f"👨‍👩‍👧‍👦  País con menor población: {pais_menor['nombre']} → {pais_menor['poblacion']:,} habitantes.")
-    print(f"🌎  Cantidad de países por continente:")
+    print(f"🌎  Cantidad de países por continente:") #Falta agregar estos contadores
     print("-"*45)
     return
