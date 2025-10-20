@@ -38,7 +38,10 @@ def statistics(data: list):
     print(f"👨‍👩‍👧‍👦  País con mayor población: {pais_mayor['nombre']} → {pais_mayor['poblacion']:,} habitantes.")
     print(f"👨‍👩‍👧‍👦  País con menor población: {pais_menor['nombre']} → {pais_menor['poblacion']:,} habitantes.")
     print(f"🌎  Cantidad de países por continente:")
-
     
+
+    for cont, cant in cant_por_continente.items():
+        print(f"  - {cont}: {cant}")
     print("-"*45)
+
     return
