@@ -1,3 +1,5 @@
+import shutil
+
 def eliminar_tildes(texto:str):
     """Elimina las tildes del texto ingresado. 
         Parámetros:
@@ -15,3 +17,16 @@ def eliminar_tildes(texto:str):
         return texto
     except (AttributeError, TypeError, ValueError):
         return None
+
+def terminal_size():
+    """
+    Obtiene el ancho de la consola de forma segura.\n
+    Retorna:\n
+        Devuelve 50 si no puede detectarlo.
+    """
+    try:
+        size = shutil.get_terminal_size()
+        return size.columns
+    except Exception as e: 
+        print(f"No se pudo detectar el tamaño de la terminal. ({e})")
+        return 50

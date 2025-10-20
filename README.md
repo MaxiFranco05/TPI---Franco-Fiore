@@ -1,189 +1,334 @@
-Trabajo Práctico Integrador — Gestión de Datos de Países (Python)
+# 🌍 Sistema de Gestión de Datos de Países
 
-Cátedra: Programación 1 – TUP (UTN)
-Integrantes: Maxi Franco — Octavio Fiore
-Repositorio: TPI—Franco-Fiore
+## 📚 Información Académica
 
-🧭 Descripción
+**Materia:** Programación 1  
+**Carrera:** Tecnicatura Universitaria en Programación (TUP)  
+**Comisión:** 3  
+**Integrantes:**
+- Maximo Franco
+- Octavio Fiore
 
-Aplicación de consola que gestiona información de países a partir de un dataset CSV y permite realizar búsquedas, filtros, ordenamientos y estadísticas básicas. Está pensada para ejercitar listas, diccionarios, funciones, control de errores y modularización.
+**Repositorio:** [TPI-Franco-Fiore](https://github.com/MaxiFranco05/TPI---Franco-Fiore)
 
+---
 
-🎯 Objetivos de aprendizaje
+## 📖 Descripción del Proyecto
 
-Practicar estructuras de datos (listas y diccionarios) y modularización con funciones.
+Este proyecto consiste en una aplicación de consola desarrollada en Python que permite gestionar y analizar información de países a nivel mundial. El sistema lee datos desde un archivo CSV y proporciona funcionalidades para realizar búsquedas, aplicar filtros, ordenar datos y calcular estadísticas básicas.
 
-Aplicar filtrado y ordenamiento.
+El objetivo principal es aplicar y consolidar conocimientos fundamentales de programación, incluyendo:
+- Estructuras de datos (listas y diccionarios)
+- Modularización mediante funciones
+- Lectura y procesamiento de archivos CSV
+- Técnicas de filtrado y ordenamiento
+- Cálculo de estadísticas básicas
+- Validación de entradas y manejo de errores
+
+El dataset incluye información de más de 200 países con datos sobre población, superficie territorial y continente de pertenencia.
 
-Calcular indicadores (máximos/mínimos, promedios, conteos por categoría). 
-
-🗂 Estructura del proyecto
-
-main.py — punto de entrada del programa (consola/menú). 
-GitHub
-
-utils/ — funciones auxiliares (lectura de CSV, validaciones, filtros/ordenamientos/estadísticas). 
-GitHub
-
-paises_mundo.csv — dataset base con columnas: nombre, poblacion, superficie, continente. 
-GitHub
-
-README.md — este documento.
-
-⚙ Requisitos previos
-
-Python 3.x instalado.
-
-Entorno de consola (Windows, Linux o macOS).
-
-🚀 Ejecución
-
-Clonar o descargar el repositorio.
-
-Abrir una consola en la carpeta del proyecto.
-
-Ejecutar el programa (ej.: python main.py).
-
-Seguir el menú interactivo en pantalla.
-
-El programa asume que paises_mundo.csv está en la raíz del proyecto con el formato indicado. 
-GitHub
-+1
-
-🧩 Funcionalidades (menú)
-
-Búsqueda por nombre (coincidencia parcial o exacta).
-
-Filtros por:
-
-Continente
-
-Rango de población
-
-Rango de superficie
-
-Ordenamientos por:
-
-Nombre
-
-Población
-
-Superficie (asc/desc)
-
-Estadísticas:
-
-País con mayor y menor población
-
-Promedio de población
-
-Promedio de superficie
-
-Cantidad de países por continente
-
-Trabajo Práctico Integrador - P…
-
-🧪 Uso esperado (flujo de usuario)
-
-Cargar el CSV al iniciar.
-
-Elegir una opción del menú (buscar/filtrar/ordenar/estadísticas).
-
-Ingresar los parámetros solicitados (por ejemplo, un continente o un rango).
-
-Ver los resultados en consola (listados o indicadores).
-
-Repetir con otras opciones o salir.
-
-🛡 Validaciones y manejo de errores
-
-Lectura de CSV con control de formato (columnas y tipos).
-
-Mensajes claros cuando no hay resultados o los parámetros del usuario son inválidos.
-
-Evitar que el programa se caiga ante entradas vacías o mal formateadas. 
-
-
-
-🏗 Conceptos aplicados
-
-Listas y diccionarios para almacenar y consultar países.
-
-Funciones (una responsabilidad por función) para lectura, filtrado, ordenamiento y estadísticas.
-
-Condicionales y bucles para el flujo del menú.
-
-Ordenamientos por claves específicas.
-
-Estadísticas básicas (máximos, mínimos, promedios, conteos).
-
-Archivos CSV: lectura e interpretación de registros. 
-
-
-
-🧾 Dataset
-
-Formato esperado (encabezado + registros):
-
-nombre: texto (ej.: Argentina)
-
-poblacion: entero (ej.: 45376763)
-
-superficie: entero en km² (ej.: 2780400)
-
-continente: texto (ej.: América) 
-
-Trabajo Práctico Integrador - P…
-
-📸 Evidencias sugeridas
-
-Incluí en el repo (carpeta docs/ o raíz):
-
-Capturas de pantalla mostrando:
-
-Búsqueda por nombre
-
-Filtros (continente / rangos)
-
-Ordenamientos (asc/desc)
-
-Todas las estadísticas requeridas
-
-Breve informe/diagrama de flujo del sistema (puede ser imagen o PDF).
-
-Video (10–15 min): explicación, demo funcionando y reflexión final del equipo. 
-
-🧑‍🤝‍🧑 Participación de integrantes
-
-Maxi Franco:
-
-Octavio Fiore:
-
-📚 Marco teórico (breve)
-
-Resumen conceptual de: listas, diccionarios, funciones, condicionales, ordenamientos, estadísticas y manejo de CSV, con fuentes bibliográficas citadas en el informe adjunto. 
-
-Trabajo Práctico Integrador - P…
-
-📝 Licencia
-
-Uso académico — libre para corrección y revisión.
-
-Checklist de la consigna
-
- Menú con búsqueda / filtros / ordenamientos / estadísticas
-
- Validaciones de entrada y manejo de errores
-
- Código modular y comentado
-
- README claro (este documento)
-
- CSV incluido
-
- Marco teórico + diagrama/flujo
-
- Capturas de ejecución
-
- Video 10–15 min con explicación, demo y reflexión final
-
- Participación de integrantes documentada
+---
+
+## 🚀 Instrucciones de Uso
+
+### Requisitos Previos
+- Python 3.x instalado en el sistema
+- Terminal o consola de comandos
+- Los archivos del proyecto descargados o clonados
+
+### Pasos para Ejecutar
+
+1. **Clonar o descargar el repositorio:**
+```bash
+git clone https://github.com/MaxiFranco05/TPI---Franco-Fiore.git
+cd TPI---Franco-Fiore
+```
+
+2. **Verificar que el archivo CSV esté presente:**
+Asegúrese de que `paises_mundo.csv` esté en la raíz del proyecto.
+
+3. **Ejecutar el programa:**
+```bash
+python main.py
+```
+
+4. **Navegar por el menú:**
+Seleccione la opción deseada ingresando el número correspondiente y siga las instrucciones en pantalla.
+
+---
+
+## 💡 Ejemplos de Uso por Menú
+
+### **Menú Principal**
+
+```
+========== Gestión de Datos de Países ==========
+1. Buscar país
+2. Filtrar países
+3. Ordenar países
+4. Mostrar estadísticas
+5. Salir
+==================================================
+Ingrese una opcion:
+```
+
+---
+
+### **1. Buscar País**
+
+**Entrada:**
+```
+Ingrese una opcion: 1
+Ingrese el nombre del país: argentina
+```
+
+**Salida:**
+```
+##############################
+📍  País: Argentina
+👨‍👩‍👧‍👦  Población: 45,773,884 habitantes
+🗺️  Superficie: 2,780,400 km²
+🌎  Continente: América del Sur
+##############################
+```
+
+---
+
+### **2. Filtrar Países**
+
+#### **2.1 Filtrar por Continente**
+
+**Entrada:**
+```
+Ingrese una opcion: 2
+Selecciona la opción por la cual filtrar ('continente', 'poblacion', 'superficie'): continente
+Ingrese el continente (Asia, America Del Sur, America Del Norte, Africa, Europa): europa
+```
+
+**Salida:**
+```
+-------------- Paises filtrados por Europa --------------
+📍  País: Rusia | 👨‍👩‍👧‍👦  Población: 144,444,359 | 🗺️  Superficie: 17,098,242 | 🌎  Continente: Europa
+📍  País: Alemania | 👨‍👩‍👧‍👦  Población: 83,294,633 | 🗺️  Superficie: 357,114 | 🌎  Continente: Europa
+📍  País: Reino Unido | 👨‍👩‍👧‍👦  Población: 67,736,802 | 🗺️  Superficie: 242,495 | 🌎  Continente: Europa
+📍  País: Francia | 👨‍👩‍👧‍👦  Población: 64,756,584 | 🗺️  Superficie: 643,801 | 🌎  Continente: Europa
+...
+--------------------------------------------------------------------------------
+```
+
+#### **2.2 Filtrar por Rango de Población**
+
+**Entrada:**
+```
+Ingrese una opcion: 2
+Selecciona la opción por la cual filtrar ('continente', 'poblacion', 'superficie'): poblacion
+Ingrese el primer valor: 40000000
+Ingrese el segundo valor: 50000000
+```
+
+**Salida:**
+```
+-------------- Paises filtrados por Poblacion (entre 40,000,000 y 50,000,000) --------------
+📍  País: Argentina | 👨‍👩‍👧‍👦  Población: 45,773,884 | 🗺️  Superficie: 2,780,400 | 🌎  Continente: América del Sur
+📍  País: Argelia | 👨‍👩‍👧‍👦  Población: 45,606,480 | 🗺️  Superficie: 2,381,741 | 🌎  Continente: África
+📍  País: Sudán | 👨‍👩‍👧‍👦  Población: 48,109,006 | 🗺️  Superficie: 1,861,484 | 🌎  Continente: África
+...
+--------------------------------------------------------------------------------
+```
+
+---
+
+### **3. Ordenar Países**
+
+#### **3.1 Ordenar por Población (Descendente)**
+
+**Entrada:**
+```
+Ingrese una opcion: 3
+Selecciona la opción por la cual ordenar ('nombre', 'poblacion', 'superficie'): poblacion
+Selecciona el orden por el cual ordenar(Asc - Desc): desc
+```
+
+**Salida:**
+```
+-------------- Paises filtrados por Poblacion (en orden Desc) --------------
+📍  País: India | 👨‍👩‍👧‍👦  Población: 1,428,627,663 | 🗺️  Superficie: 3,287,263 | 🌎  Continente: Asia
+📍  País: China | 👨‍👩‍👧‍👦  Población: 1,425,671,352 | 🗺️  Superficie: 9,596,961 | 🌎  Continente: Asia
+📍  País: Estados Unidos | 👨‍👩‍👧‍👦  Población: 339,996,563 | 🗺️  Superficie: 9,833,517 | 🌎  Continente: América del Norte
+...
+```
+
+#### **3.2 Ordenar por Superficie (Ascendente)**
+
+**Entrada:**
+```
+Ingrese una opcion: 3
+Selecciona la opción por la cual ordenar ('nombre', 'poblacion', 'superficie'): superficie
+Selecciona el orden por el cual ordenar(Asc - Desc): asc
+```
+
+**Salida:**
+```
+-------------- Paises filtrados por Superficie (en orden Asc) --------------
+📍  País: Ciudad del Vaticano | 👨‍👩‍👧‍👦  Población: 825 | 🗺️  Superficie: 0 | 🌎  Continente: Europa
+📍  País: Mónaco | 👨‍👩‍👧‍👦  Población: 36,469 | 🗺️  Superficie: 2 | 🌎  Continente: Europa
+📍  País: Nauru | 👨‍👩‍👧‍👦  Población: 12,780 | 🗺️  Superficie: 21 | 🌎  Continente: Oceanía
+...
+```
+
+---
+
+### **4. Mostrar Estadísticas**
+
+**Entrada:**
+```
+Ingrese una opcion: 4
+```
+
+**Salida:**
+```
+--------------- Estadísticas ---------------
+👨‍👩‍👧‍👦  Promedio de población: 40,879,595.89
+🗺️  Promedio de superficie: 679,511.36
+👨‍👩‍👧‍👦  País con mayor población: India → 1,428,627,663 habitantes.
+👨‍👩‍👧‍👦  País con menor población: Ciudad del Vaticano → 825 habitantes.
+🌎  Cantidad de países por continente:
+  - Asia: 50
+  - América del Norte: 23
+  - América del Sur: 12
+  - África: 58
+  - Europa: 44
+  - Oceanía: 16
+---------------------------------------------
+```
+
+---
+
+### **5. Salir**
+
+**Entrada:**
+```
+Ingrese una opcion: 5
+```
+
+**Salida:**
+```
+👋   Gracias por usar el sistema de paises. ¡Hasta pronto!
+```
+
+---
+
+## 🛠️ Tecnologías y Funcionalidades
+
+### **Tecnologías Utilizadas**
+- **Lenguaje:** Python 3.x
+- **Módulos estándar:** `csv` (lectura de archivos)
+- **Control de versiones:** Git y GitHub
+
+### **Estructuras de Datos**
+- **Listas:** Para almacenar colecciones de países
+- **Diccionarios:** Para representar cada país con sus atributos (nombre, población, superficie, continente)
+
+### **Funcionalidades Implementadas**
+
+#### **1. Búsqueda de Países**
+- Búsqueda por coincidencia exacta del nombre
+- Normalización de texto (eliminación de tildes y conversión a minúsculas)
+- Validación de entradas
+
+#### **2. Filtrado de Datos**
+- **Por continente:** Asia, América del Norte, América del Sur, África, Europa, Oceanía
+- **Por rango de población:** Filtrado entre dos valores numéricos
+- **Por rango de superficie:** Filtrado entre dos valores numéricos
+
+#### **3. Ordenamiento de Datos**
+- **Por nombre:** Orden alfabético
+- **Por población:** Orden ascendente o descendente
+- **Por superficie:** Orden ascendente o descendente
+
+#### **4. Estadísticas**
+- País con mayor población
+- País con menor población
+- Promedio de población mundial
+- Promedio de superficie territorial
+- Cantidad de países por continente
+
+#### **5. Validaciones y Manejo de Errores**
+- Control de formato en archivo CSV
+- Validación de tipos de datos (enteros para población y superficie)
+- Mensajes claros de error cuando no hay resultados
+- Manejo de excepciones para entradas inválidas
+- Prevención de caídas del programa ante datos incorrectos
+
+### **Estructura Modular**
+
+```
+TPI-Franco-Fiore/
+│
+├── main.py                 # Punto de entrada del programa
+├── paises_mundo.csv        # Dataset con información de países
+├── README.md               # Documentación del proyecto
+├── .gitignore             # Archivos excluidos del repositorio
+│
+└── utils/                  # Módulo de utilidades
+    ├── __init__.py
+    ├── menu.py            # Gestión del menú principal
+    ├── reader.py          # Lectura del archivo CSV
+    ├── searcher.py        # Búsqueda de países
+    ├── filter.py          # Filtrado de datos
+    ├── sorter.py          # Ordenamiento de datos
+    ├── statistics.py      # Cálculo de estadísticas
+    └── utils.py           # Funciones auxiliares
+```
+
+### **Principios de Diseño**
+- **Modularización:** Cada función tiene una responsabilidad única
+- **Reutilización:** Funciones auxiliares compartidas entre módulos
+- **Legibilidad:** Código comentado y con nombres descriptivos
+- **Robustez:** Validaciones exhaustivas y manejo de errores
+
+---
+
+## 📝 Conclusión
+
+Este proyecto ha permitido consolidar conocimientos fundamentales de programación estructurada en Python, demostrando la capacidad de:
+
+1. **Gestionar datos complejos:** Mediante el uso eficiente de listas y diccionarios, logramos representar y manipular información de más de 200 países de forma organizada.
+
+2. **Modularizar código:** La separación del proyecto en módulos independientes (`utils/`) facilitó el desarrollo colaborativo, el mantenimiento del código y su escalabilidad.
+
+3. **Implementar algoritmos de búsqueda y ordenamiento:** Aplicamos técnicas de filtrado por múltiples criterios y ordenamiento mediante funciones lambda, permitiendo análisis flexible de los datos.
+
+4. **Procesar archivos CSV:** Desarrollamos habilidades para leer, validar y transformar datos desde archivos externos, una competencia esencial en análisis de datos.
+
+5. **Calcular estadísticas descriptivas:** Implementamos cálculos de máximos, mínimos, promedios y conteos agrupados, fundamentales para el análisis exploratorio de datos.
+
+6. **Validar y manejar errores:** Incorporamos validaciones robustas que mejoran la experiencia del usuario y evitan fallos en la ejecución del programa.
+
+### **Aprendizajes Clave**
+
+- La importancia de la **planificación previa** mediante diagramas de flujo y diseño de funciones antes de comenzar a codificar.
+- El valor de la **documentación clara** tanto en el código como en el README para facilitar la comprensión y uso del sistema.
+- La necesidad de **testear exhaustivamente** cada funcionalidad con diferentes casos de prueba, incluyendo casos límite.
+- El trabajo en equipo requiere **comunicación constante** y **división clara de responsabilidades**.
+
+### **Posibles Mejoras Futuras**
+
+- Implementar una interfaz gráfica (GUI) utilizando bibliotecas como Tkinter o PyQt
+- Agregar funcionalidad de exportación de resultados a formatos como Excel o PDF
+- Incorporar visualizaciones gráficas de estadísticas usando Matplotlib o Plotly
+- Permitir la edición y actualización del dataset desde la aplicación
+- Implementar búsquedas más avanzadas con expresiones regulares
+- Agregar persistencia de favoritos o configuraciones del usuario
+
+Este trabajo práctico integrador nos ha preparado para enfrentar desafíos más complejos en el desarrollo de software, sentando bases sólidas en programación estructurada y buenas prácticas de desarrollo.
+
+---
+
+## 📄 Licencia
+
+Este proyecto es de uso académico, libre para corrección, revisión y fines educativos.
+
+---
+
+**Desarrollado con 💻 por Maximo Franco y Octavio Fiore | TUP - UTN | 2025**

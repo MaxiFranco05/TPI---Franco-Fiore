@@ -31,5 +31,5 @@ def sort_paises(data:list, tipo: str, orden: bool) -> list:
     orden = False if orden in ("asc","ascendente") else True
 
     for i in sorted(data, key = lambda x: x[tipo], reverse = orden):
-        print(f"📍  País: {i['nombre']} | 👨‍👩‍👧‍👦  Población: {i['poblacion']:,} | 🗺️  Superficie: {i['superficie']:,} | 🌎  Continente: {i['continente']}")
+        print(f"📍  País: {i['nombre']}\nPoblación: {i['poblacion']:,}\nSuperficie: {i['superficie']:,}\nContinente: {i['continente']}")
     return

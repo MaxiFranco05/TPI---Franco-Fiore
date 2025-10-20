@@ -6,10 +6,12 @@ from utils.sorter import sorter
 from utils.statistics import statistics
 
 def main():
+    data_csv = read_csv("paises_mundo.csv")
+    if not data_csv:
+        return
     while True:
         menu()
         opcion = select_option()
-        data_csv = read_csv("paises_mundo.csv")
 
         match opcion:
             case 1:
@@ -21,10 +23,10 @@ def main():
             case 4:
                 statistics(data_csv)
             case 5:
-                print("👋   Gracias por usar el sistema de paises. ¡Hasta pronto!")
+                print("👋  Gracias por usar el sistema de paises. ¡Hasta pronto!")
                 break 
             case _:
-                print("⚠️   Opción inválida. Intente de nuevo")
+                print("⚠️  Opción inválida. Intente de nuevo")
         input("Presione Enter para continuar...")
 
 main()
