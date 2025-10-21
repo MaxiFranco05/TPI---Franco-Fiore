@@ -26,5 +26,5 @@ def statistics(data: list[dict]):
     print(f"🌎  Cantidad de países por continente:")
     for cont, cant in cant_por_continente.items():
         print(f"                                    • {cont}: {cant} paises")
-    print("~-"*(terminal_size()//2))
+    print("~"*terminal_size())
     return

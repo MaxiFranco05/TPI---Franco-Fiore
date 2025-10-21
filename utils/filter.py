@@ -8,7 +8,7 @@ def filter(data: list[dict]):
             None: Imprime en consola los países filtrados.
     """
     filters = ("continente", "poblacion", "superficie") # Filtros principales
-    filter_type = input(f"Selecciona la opción por la cual filtrar ({" - ".join(i.title() for i in filters)}): ").lower().strip() # El usuario ingresa la opción por filtrar
+    filter_type = input(f"Selecciona la opción por la cual filtrar ({' - '.join(i.title() for i in filters)}): ").lower().strip() # El usuario ingresa la opción por filtrar
     if filter_type not in filters: # Si el usuario no ingresa alguna opción, se vuelve al menú.
         print("⚠️  Su opción no se encuentra entre los filtros.")
         return
@@ -20,7 +20,8 @@ def filter(data: list[dict]):
             print(f" Paises filtrados por {filter_option.title()} ".center(terminal_size(), "~"))
             filter_paises(data, filter_type, filter_option)
         else: 
-            return print("⚠️  Continente no válido.")
+            print("⚠️  Continente no válido.")
+            return
     
     else: # Ejectuta si la opción es 'población' o 'superficie'.
         filter_value = []
@@ -61,7 +62,7 @@ def filter_paises(data:list, tipo:str, value:str | list[int]) -> list:
 
         for i in paises_filtrados:
             if tipo == 'continente':
-                print(f"{i['nombre']} - {i['continente']}")
+                print(f"📍  {i['nombre']}\nPoblacion: {i['poblacion']} habitantes\nSuperficie: {i['superficie']} km²")
             else:
                 print(f"{i['nombre']} - {i[tipo]:,} {'habitantes' if tipo == 'poblacion' else 'km²'}")
         print("~"*terminal_size())

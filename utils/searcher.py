@@ -10,7 +10,7 @@ def search_pais(data: list) -> str:
     """
 
     searched_pais = input("Ingrese el nombre del país: ").strip().lower()
-    match_paises = [item for item in data if eliminar_tildes(searched_pais) == eliminar_tildes(item["nombre"].lower())]
+    match_paises = [item for item in data if eliminar_tildes(searched_pais) == eliminar_tildes(item["nombre"]).lower()]
     print("~-"*(terminal_size()//2))
     if len(match_paises) == 0:
         return print("⚠️  País no encontrado")

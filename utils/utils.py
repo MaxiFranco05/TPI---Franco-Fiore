@@ -27,6 +27,5 @@ def terminal_size():
     try:
         size = shutil.get_terminal_size()
         return size.columns
-    except Exception as e: 
-        print(f"No se pudo detectar el tamaño de la terminal. ({e})")
+    except Exception: 
         return 50

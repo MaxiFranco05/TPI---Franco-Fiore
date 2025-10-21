@@ -22,10 +22,12 @@ def read_csv(path: str) -> list:
                     paises.append(pais_dict)
                 except KeyError as e:
                     print(f"⚠️  Campo no encontrado. ({e} no es un campo del CSV)")
-                    return
+                    continue
                 except (ValueError, AttributeError) as e:
                     print(f"⚠️  Valor inválido. ({e})")
-                    return
+                    continue
+        if not paises:
+            print("⚠️  No se cargaron datos válidos del CSV.")
         return paises
     except FileNotFoundError:
         raise Exception("⚠️  CSV no encontrado. Verifica por favor el documento.")

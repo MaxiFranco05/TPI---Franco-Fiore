@@ -84,12 +84,12 @@ Ingrese el nombre del país: argentina
 
 **Salida:**
 ```
-##############################
-📍  País: Argentina
-👨‍👩‍👧‍👦  Población: 45,773,884 habitantes
-🗺️  Superficie: 2,780,400 km²
-🌎  Continente: América del Sur
-##############################
+~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+📍  Argentina
+Población: 45,773,884 habitantes
+Superficie: 2,780,400 km²
+Continente: América del Sur
+~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 ```
 
 ---
@@ -107,13 +107,21 @@ Ingrese el continente (Asia, America Del Sur, America Del Norte, Africa, Europa)
 
 **Salida:**
 ```
--------------- Paises filtrados por Europa --------------
-📍  País: Rusia | 👨‍👩‍👧‍👦  Población: 144,444,359 | 🗺️  Superficie: 17,098,242 | 🌎  Continente: Europa
-📍  País: Alemania | 👨‍👩‍👧‍👦  Población: 83,294,633 | 🗺️  Superficie: 357,114 | 🌎  Continente: Europa
-📍  País: Reino Unido | 👨‍👩‍👧‍👦  Población: 67,736,802 | 🗺️  Superficie: 242,495 | 🌎  Continente: Europa
-📍  País: Francia | 👨‍👩‍👧‍👦  Población: 64,756,584 | 🗺️  Superficie: 643,801 | 🌎  Continente: Europa
+~~~~~~~~~~~~~~~~~~~~~~~~~~ Paises filtrados por Europa ~~~~~~~~~~~~~~~~~~~~~~~~~~
+📍  Rusia
+Poblacion: 144444359 habitantes
+Superficie: 17098242 km²
+📍  Alemania
+Poblacion: 83294633 habitantes
+Superficie: 357114 km²
+📍  Reino Unido
+Poblacion: 67736802 habitantes
+Superficie: 242495 km²
+📍  Francia
+Poblacion: 64756584 habitantes
+Superficie: 643801 km²
 ...
---------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 #### **2.2 Filtrar por Rango de Población**
@@ -128,12 +136,13 @@ Ingrese el segundo valor: 50000000
 
 **Salida:**
 ```
--------------- Paises filtrados por Poblacion (entre 40,000,000 y 50,000,000) --------------
-📍  País: Argentina | 👨‍👩‍👧‍👦  Población: 45,773,884 | 🗺️  Superficie: 2,780,400 | 🌎  Continente: América del Sur
-📍  País: Argelia | 👨‍👩‍👧‍👦  Población: 45,606,480 | 🗺️  Superficie: 2,381,741 | 🌎  Continente: África
-📍  País: Sudán | 👨‍👩‍👧‍👦  Población: 48,109,006 | 🗺️  Superficie: 1,861,484 | 🌎  Continente: África
+~~~~~~~~~~~~~~~~~~~~~~~~~~ Paises filtrados por Poblacion (entre 40,000,000 y 50,000,000) ~~~~~~~~~~~~~~~~~~~~~~~~~~
+España - 47,519,628 habitantes
+Argentina - 45,773,884 habitantes
+Uganda - 48,582,334 habitantes
+Argelia - 45,606,480 habitantes
 ...
---------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 ---
@@ -151,11 +160,21 @@ Selecciona el orden por el cual ordenar(Asc - Desc): desc
 
 **Salida:**
 ```
--------------- Paises filtrados por Poblacion (en orden Desc) --------------
-📍  País: India | 👨‍👩‍👧‍👦  Población: 1,428,627,663 | 🗺️  Superficie: 3,287,263 | 🌎  Continente: Asia
-📍  País: China | 👨‍👩‍👧‍👦  Población: 1,425,671,352 | 🗺️  Superficie: 9,596,961 | 🌎  Continente: Asia
-📍  País: Estados Unidos | 👨‍👩‍👧‍👦  Población: 339,996,563 | 🗺️  Superficie: 9,833,517 | 🌎  Continente: América del Norte
+~~~~~~~~~~~~~~~~~~~~~~~~~~ Paises ordenados por Poblacion (en orden Desc) ~~~~~~~~~~~~~~~~~~~~~~~~~~
+📍  País: India
+Población: 1,428,627,663
+Superficie: 3,287,263
+Continente: Asia
+📍  País: China
+Población: 1,425,671,352
+Superficie: 9,596,961
+Continente: Asia
+📍  País: Estados Unidos
+Población: 339,996,563
+Superficie: 9,833,517
+Continente: América del Norte
 ...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 #### **3.2 Ordenar por Superficie (Ascendente)**
@@ -169,11 +188,21 @@ Selecciona el orden por el cual ordenar(Asc - Desc): asc
 
 **Salida:**
 ```
--------------- Paises filtrados por Superficie (en orden Asc) --------------
-📍  País: Ciudad del Vaticano | 👨‍👩‍👧‍👦  Población: 825 | 🗺️  Superficie: 0 | 🌎  Continente: Europa
-📍  País: Mónaco | 👨‍👩‍👧‍👦  Población: 36,469 | 🗺️  Superficie: 2 | 🌎  Continente: Europa
-📍  País: Nauru | 👨‍👩‍👧‍👦  Población: 12,780 | 🗺️  Superficie: 21 | 🌎  Continente: Oceanía
+~~~~~~~~~~~~~~~~~~~~~~~~~~ Paises ordenados por Superficie (en orden Asc) ~~~~~~~~~~~~~~~~~~~~~~~~~~
+📍  País: Ciudad del Vaticano
+Población: 825
+Superficie: 0
+Continente: Europa
+📍  País: Mónaco
+Población: 36,469
+Superficie: 2
+Continente: Europa
+📍  País: Nauru
+Población: 12,780
+Superficie: 21
+Continente: Oceanía
 ...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 ---
@@ -187,19 +216,19 @@ Ingrese una opcion: 4
 
 **Salida:**
 ```
---------------- Estadísticas ---------------
-👨‍👩‍👧‍👦  Promedio de población: 40,879,595.89
-🗺️  Promedio de superficie: 679,511.36
-👨‍👩‍👧‍👦  País con mayor población: India → 1,428,627,663 habitantes.
-👨‍👩‍👧‍👦  País con menor población: Ciudad del Vaticano → 825 habitantes.
+~~~~~~~~~~~~~~~~~~~~~~~~~~ Estadísticas ~~~~~~~~~~~~~~~~~~~~~~~~~~
+🗺️   Promedio de superficie: 674,264.48 km²
+👨  Promedio de población: 40,679,819.69 habitantes
+👨  País con mayor población: India → 1,428,627,663 habitantes.
+👨  País con menor población: Ciudad del Vaticano → 825 habitantes.
 🌎  Cantidad de países por continente:
-  - Asia: 50
-  - América del Norte: 23
-  - América del Sur: 12
-  - África: 58
-  - Europa: 44
-  - Oceanía: 16
----------------------------------------------
+                                    • Asia: 48 paises
+                                    • América del Norte: 26 paises
+                                    • América del Sur: 12 paises
+                                    • África: 52 paises
+                                    • Europa: 42 paises
+                                    • Oceanía: 16 paises
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 ---
@@ -311,23 +340,6 @@ Este proyecto ha permitido consolidar conocimientos fundamentales de programaci�
 - El valor de la **documentación clara** tanto en el código como en el README para facilitar la comprensión y uso del sistema.
 - La necesidad de **testear exhaustivamente** cada funcionalidad con diferentes casos de prueba, incluyendo casos límite.
 - El trabajo en equipo requiere **comunicación constante** y **división clara de responsabilidades**.
-
-### **Posibles Mejoras Futuras**
-
-- Implementar una interfaz gráfica (GUI) utilizando bibliotecas como Tkinter o PyQt
-- Agregar funcionalidad de exportación de resultados a formatos como Excel o PDF
-- Incorporar visualizaciones gráficas de estadísticas usando Matplotlib o Plotly
-- Permitir la edición y actualización del dataset desde la aplicación
-- Implementar búsquedas más avanzadas con expresiones regulares
-- Agregar persistencia de favoritos o configuraciones del usuario
-
-Este trabajo práctico integrador nos ha preparado para enfrentar desafíos más complejos en el desarrollo de software, sentando bases sólidas en programación estructurada y buenas prácticas de desarrollo.
-
----
-
-## 📄 Licencia
-
-Este proyecto es de uso académico, libre para corrección, revisión y fines educativos.
 
 ---
 

@@ -1,4 +1,4 @@
-from utils.utils import eliminar_tildes
+from utils.utils import eliminar_tildes, terminal_size
 
 def sorter(data:list):
     """Ordenar paises por nombre, población o superficie.\n
@@ -15,18 +15,17 @@ def sorter(data:list):
     sorter_order = input("Selecciona el orden por el cual ordenar(Asc - Desc): ")
     if sorter_order.lower().strip() not in orders:
         return print("❌   Opción inválida.")
-    print("-"*14,f"Paises filtrados por {sorter_type.title()} (en orden {sorter_order.title().strip()})","-"*14)
+    print(f" Paises ordenados por {sorter_type.title()} (en orden {sorter_order.title().strip()}) ".center(terminal_size(), "~"))
     sort_paises(data, sorter_type, sorter_order)
+    print("~"*terminal_size())
 
 
 def sort_paises(data:list, tipo: str, orden: bool) -> list:
-    """Ordenar paises por nombre, población o superficie.\n
+    """Ordenar paises por nombre, población o superficie e imprime en la consola.\n
     Parámetros:\n
         data (list): Lista de paises en diccionarios.
         tipo (str): Tipo de dato para ordenar.
         orden (str): Define el orden.
-    Retorna:\n
-        list: Lista de países ordenados.
     """
     orden = False if orden in ("asc","ascendente") else True
 

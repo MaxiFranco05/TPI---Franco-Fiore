@@ -20,10 +20,10 @@ def select_option():
     option = input("Ingrese una opcion: ")
     if not option.isdigit():
         print("⚠️  Ingrese un numero entero")
-        return None
+        return
     try:
         option = int(option)
         return option
     except ValueError:
         print("⚠️  Ingrese un numero válido")
-        return None
+        return
