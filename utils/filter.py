@@ -1,4 +1,4 @@
-from utils.utils import eliminar_tildes, terminal_size
+from utils.utils import eliminar_tildes, console_size
 from utils.paginator import paginar
 
 
@@ -19,7 +19,7 @@ def filter(data: list[dict]):
         continents = ("asia", "america del sur", "america del norte", "africa", "europa")
         filter_option = input(f"Ingrese el continente ({' - '.join(i.title() for i in continents)}): ").lower().strip()
         if eliminar_tildes(filter_option) in continents: 
-            print(f" Paises filtrados por {filter_option.title()} ".center(terminal_size(), "~"))
+            print(f" Paises filtrados por {filter_option.title()} ".center(console_size(), "~"))
             filter_paises(data, filter_type, filter_option)
         else: 
             print("⚠️  Continente no válido.")
@@ -34,7 +34,7 @@ def filter(data: list[dict]):
                 return print("⚠️  Valor inválido.")
 
         if filter_value[1] > filter_value[0] >= 0:
-            print(f" Paises filtrados por {filter_type.title()} (entre {filter_value[0]:,} y {filter_value[1]:,}) ".center(terminal_size(), "~"))
+            print(f" Paises filtrados por {filter_type.title()} (entre {filter_value[0]:,} y {filter_value[1]:,}) ".center(console_size(), "~"))
             filter_paises(data, filter_type, filter_value)
         else:
             return print("⚠️  Valores inválidos.")
@@ -60,9 +60,16 @@ def filter_paises(data:list, tipo:str, value:str | list[int]) -> list:
 
     if len(paises_filtrados) == 0:
         return print("⚠️  Ningún país encontrado bajo el filtrado...")
+    elif len(paises_filtrados) <= 5:
+        for i in paises_filtrados:
+            if tipo == 'continente':
+                print(f"📍  {i['nombre']}\nPoblacion: {i['poblacion']} habitantes\nSuperficie: {i['superficie']} km²")
+            else:
+                print(f"📍  {i['nombre']} - {i[tipo]:,} {'habitantes' if tipo == 'poblacion' else 'km²'}")
+        print("~"*console_size())
     else:
-        paginar(paises_filtrados)  # 👈 agrega esta línea
-        print("~" * terminal_size())
+        paginar(paises_filtrados)
+        print("~" * console_size())
         return
 
 

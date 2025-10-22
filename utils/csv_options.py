@@ -11,13 +11,14 @@ def read_csv(path: str) -> list:
     try:
         with open(path, mode="r", encoding="utf-8-sig") as csv_open:
             csv_read = csv.DictReader(csv_open)
+            cols = csv_read.fieldnames
             for pais in csv_read:
                 try:
                     pais_dict = {
-                        "nombre": pais["nombre"],
-                        "poblacion": int(pais["poblacion"]),
-                        "superficie": int(pais["superficie"]),
-                        "continente": pais["continente"]
+                        "nombre": pais[cols[0]],
+                        "poblacion": int(pais[cols[1]]),
+                        "superficie": int(pais[cols[2]]),
+                        "continente": pais[cols[3]]
                     }
                     paises.append(pais_dict)
                 except KeyError as e:
@@ -31,3 +32,4 @@ def read_csv(path: str) -> list:
         return paises
     except FileNotFoundError:
         raise Exception("⚠️  CSV no encontrado. Verifica por favor el documento.")
+    

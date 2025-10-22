@@ -1,4 +1,4 @@
-from utils.utils import terminal_size
+from utils.utils import console_size
 
 def statistics(data: list[dict]):
     """Devuelve las estadisticas mundiales. 
@@ -18,7 +18,7 @@ def statistics(data: list[dict]):
         else:
             cant_por_continente[cont] = 1
 
-    print(" Estadísticas ".center(terminal_size(), "~"))
+    print(" Estadísticas ".center(console_size(), "~"))
     print(f"🗺️   Promedio de superficie: {prom_superf:,.2f} km²")
     print(f"👨  Promedio de población: {prom_pobl:,.2f} habitantes")
     print(f"👨  País con mayor población: {pais_mayor['nombre']} → {pais_mayor['poblacion']:,} habitantes.")
@@ -26,5 +26,5 @@ def statistics(data: list[dict]):
     print(f"🌎  Cantidad de países por continente:")
     for cont, cant in cant_por_continente.items():
         print(f"                                    • {cont}: {cant} paises")
-    print("~"*terminal_size())
+    print("~"*console_size())
     return

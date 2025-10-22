@@ -1,14 +1,15 @@
-from utils.utils import terminal_size
+from utils.utils import console_size
 
 def menu() -> str:
     """
     Devuelve la lista de opciones.
     """
     options = ("Buscar país", "Filtrar países", "Ordenar países", "Mostrar estadísticas", "Salir")
-    print(" Gestión de Datos de Países ".center(terminal_size(), "-"))
+    print(" Gestión de Datos de Países ".center(console_size(), "-"))
     for i, option in enumerate(options):
         print(f"{i+1}. {option}")
-    print("-"*terminal_size())
+    print("-"*console_size())
+    #print("◠◡"*(console_size()//2))
     return
 
 def select_option():
@@ -17,13 +18,13 @@ def select_option():
     Retorna:\n
     int: Número de la opción elegida.
     """
-    option = input("Ingrese una opcion: ")
-    if not option.isdigit():
-        print("⚠️  Ingrese un numero entero")
-        return
-    try:
-        option = int(option)
-        return option
-    except ValueError:
-        print("⚠️  Ingrese un numero válido")
-        return
+    while True:
+        option = input("Ingrese una opcion: ")
+        if not option.isdigit():
+            print("⚠️  Ingrese un numero válido.")
+        else:
+            try:
+                option = int(option)
+                return option
+            except ValueError:
+                print("⚠️  Ingrese un numero válido")

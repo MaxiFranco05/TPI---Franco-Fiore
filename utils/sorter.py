@@ -1,4 +1,4 @@
-from utils.utils import eliminar_tildes, terminal_size
+from utils.utils import eliminar_tildes, console_size
 from utils.paginator import paginar  
 
 def sorter(data:list):
@@ -13,12 +13,12 @@ def sorter(data:list):
     if eliminar_tildes(sorter_type).lower().strip() not in sorters:
         return print("❌   Opción inválida.")
     orders = ("asc", "desc", "ascendente", "descendente")
-    sorter_order = input("Selecciona el orden por el cual ordenar(Asc - Desc): ")
+    sorter_order = input("Selecciona el orden por el cual ordenar (Asc - Desc): ")
     if sorter_order.lower().strip() not in orders:
         return print("❌   Opción inválida.")
-    print(f" Paises ordenados por {sorter_type.title()} (en orden {sorter_order.title().strip()}) ".center(terminal_size(), "~"))
+    print(f" Paises ordenados por {sorter_type.title()} (en orden {sorter_order.title().strip()}) ".center(console_size(), "~"))
     sort_paises(data, sorter_type, sorter_order)
-    print("~"*terminal_size())
+    print("~"*console_size())
 
 
 def sort_paises(data:list, tipo: str, orden: bool) -> list:
