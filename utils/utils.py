@@ -29,3 +29,6 @@ def terminal_size():
         return size.columns
     except Exception: 
         return 50
+    
+
+    

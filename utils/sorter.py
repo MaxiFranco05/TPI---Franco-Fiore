@@ -1,4 +1,5 @@
 from utils.utils import eliminar_tildes, terminal_size
+from utils.paginator import paginar  
 
 def sorter(data:list):
     """Ordenar paises por nombre, población o superficie.\n
@@ -27,8 +28,6 @@ def sort_paises(data:list, tipo: str, orden: bool) -> list:
         tipo (str): Tipo de dato para ordenar.
         orden (str): Define el orden.
     """
-    orden = False if orden in ("asc","ascendente") else True
-
-    for i in sorted(data, key = lambda x: x[tipo], reverse = orden):
-        print(f"📍  País: {i['nombre']}\nPoblación: {i['poblacion']:,}\nSuperficie: {i['superficie']:,}\nContinente: {i['continente']}")
-    return
+    orden = False if orden in ("asc", "ascendente") else True
+    paises_ordenados = sorted(data, key=lambda x: x[tipo], reverse=orden)
+    paginar(paises_ordenados)

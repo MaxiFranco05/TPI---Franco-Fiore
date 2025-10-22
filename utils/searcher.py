@@ -1,4 +1,5 @@
 from utils.utils import eliminar_tildes, terminal_size
+from utils.paginator import paginar
 
 def search_pais(data: list) -> str:
     """Busca el país dentro de una lista de diccionarios.
@@ -15,7 +16,6 @@ def search_pais(data: list) -> str:
     if len(match_paises) == 0:
         return print("⚠️  País no encontrado")
     else:
-        for item in match_paises:
-            print(f"📍  {item['nombre']}\nPoblación: {item['poblacion']:,} habitantes\nSuperficie: {item['superficie']:,} km²\nContinente: {item['continente']}")
-        print("~-"*(terminal_size()//2))
+        
+        paginar(match_paises)  
         return

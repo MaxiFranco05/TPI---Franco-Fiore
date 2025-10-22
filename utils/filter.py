@@ -1,4 +1,6 @@
 from utils.utils import eliminar_tildes, terminal_size
+from utils.paginator import paginar
+
 
 def filter(data: list[dict]):
     """Devuelve los paises filtrados
@@ -57,15 +59,10 @@ def filter_paises(data:list, tipo:str, value:str | list[int]) -> list:
 
 
     if len(paises_filtrados) == 0:
-        return print("⚠️  Ningun país encontrado bajo el filtrado...")
+        return print("⚠️  Ningún país encontrado bajo el filtrado...")
     else:
-
-        for i in paises_filtrados:
-            if tipo == 'continente':
-                print(f"📍  {i['nombre']}\nPoblacion: {i['poblacion']} habitantes\nSuperficie: {i['superficie']} km²")
-            else:
-                print(f"{i['nombre']} - {i[tipo]:,} {'habitantes' if tipo == 'poblacion' else 'km²'}")
-        print("~"*terminal_size())
+        paginar(paises_filtrados)  # 👈 agrega esta línea
+        print("~" * terminal_size())
         return
-    
+
 
