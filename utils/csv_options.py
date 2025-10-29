@@ -1,5 +1,5 @@
 from utils.utils import console_size, eliminar_tildes
-import csv, os, time
+import csv, os, time, random
 
 
 def dev_options(data: list[dict], path: str):
@@ -10,8 +10,10 @@ def dev_options(data: list[dict], path: str):
     """
     options = ["Agregar país","Editar país","Eliminar país","Salir"]
     while True:
+        print(" Opciones de Desarrollador ".center(console_size(), "-"))
         for i, opt in enumerate(options):
             print(f"{i+1}. {opt}")
+        print("-"*console_size())
         try:
             option = int(input("Ingrese el número de la opción: ").strip())
         except ValueError:
@@ -26,9 +28,9 @@ def dev_options(data: list[dict], path: str):
             case 1:
                 post_pais(path)
             case 2:
-                pass
+                put_pais(path)
             case 3:
-                pass
+                del_pais(path)
             case 4:
                 break
             case _:
@@ -131,9 +133,7 @@ def post_pais(path: str):
                 (continent for continent in continents if eliminar_tildes(new_continente).lower() == eliminar_tildes(continent).lower()), None  # Valor por defecto si no hay coincidencias
             )
 
-            if match is not None:
-                pass
-            else:
+            if match is None:
                 raise ValueError("El continente no se encuentra dentro de las opciones.")
             
         except (ValueError, TypeError) as e:
@@ -159,35 +159,47 @@ def post_pais(path: str):
                 "continente": match
             })
             print("✔️  País agregado con éxito.")
+            print("~"*console_size())
             print(f"📍  {new_nombre}\nPoblación: {new_poblacion:,} habitantes\nSuperficie: {new_superficie:,} km²\nContinente: {match}")
+            print("~"*console_size())
 
-        except (ValueError, TypeError,) as e:
-            print(f"⚠️  Error al escribir CSV ({e}).")
-            return
+        except FileNotFoundError as e:
+            print(f"⚠️  Archivo no encontrado ({path}). ({e})")
+        except (IOError,OSError) as e:
+            print(f"⚠️  Un error ocurrió al leer el archivo. ({e})")
         except csv.Error as e:
-            print(f"⚠️  Error del módulo csv: {e}")
-            return
-        except OSError as e:
-            print(f"⚠️  Error de E/S al escribir el archivo: {e}")
+            print(f"⚠️  Error del módulo csv. ({e})")
             return
         except Exception as e:
-            print(f"⚠️  Error inesperado al escribir CSV: {e}")
+            print(f"⚠️  Error inesperado al escribir CSV. ({e})")
             return
 
-""" 
+
 def put_pais(path: str):
-    "" "Edita un registro del CSV.
+    """Edita un registro del CSV.
     Parámetros:\n
         path (str): Ruta del archivo CSV.
-    "" "
+    """
     # Lista de continentes
     continents = ("América del Sur", "América del Norte", "África", "Asia", "Oceanía")
     options = ("poblacion", "superficie", "continente", "todo")
 
     # Abre el CSV en modo Lectura y guarda los dict en registers en forma de lista
-    with open(path, mode="r", encoding="utf-8", newline="") as file:
-        reader = csv.DictReader(file)
-        registers = list(reader)
+    try:
+        with open(path, mode="r", encoding="utf-8", newline="") as file:
+            reader = csv.DictReader(file)
+            registers = list(reader)
+    except FileNotFoundError as e:
+        print(f"⚠️  Archivo no encontrado ({path}). ({e})")
+    except (IOError,OSError) as e:
+        print(f"⚠️  Un error ocurrió al leer el archivo. ({e})")
+    except csv.Error as e:
+            print(f"⚠️  Error del módulo csv. ({e})")
+            return
+    except Exception as e:
+            print(f"⚠️  Error inesperado al escribir CSV. ({e})")
+            return
+    
     new_nombre = input("Ingrese el nombre del país a editar: ").strip().lower()
 
     # Verifica si el input ingresado está vacío
@@ -198,7 +210,7 @@ def put_pais(path: str):
     # Verifica si el país ingresado existe, utilizamos un flag para el index y verificar
     index = None
     for i, pais in enumerate(registers):
-        if pais["nombre"].lower() == new_nombre:
+        if eliminar_tildes(pais["nombre"].lower()) == new_nombre:
             index = i
             break
 
@@ -210,10 +222,153 @@ def put_pais(path: str):
     # Consulta el campo especifico a modificar o todos
     fields_options = input(f"Ingrese el campo que quiere modificar ({"/".join(options)}): ").strip().lower()
     # Comprueba si el input corresponde a las opciones
-    if fields_options in options:
-        # Comprueba si el input es población o superficie
-        if fields_options in ("poblacion", "superficie"):
-            try:
-                field_value = int(input(f"Ingrese el valor del campo {fields_options.title()}: "))
-            except (ValueError,TypeError) as e:
-                print(f"⚠️  Valor inválido o incorrecto ({e})") """
+    if fields_options not in options:
+        print("⚠️  Opción inválida o incorrecta.")
+        return
+    # Comprueba si el input es población o superficie
+    if fields_options in ("poblacion", "superficie"):
+        try:
+            field_value = int(input(f"Ingrese el valor del campo '{fields_options.title()}': "))
+            registers[index][fields_options] = field_value
+        except (ValueError,TypeError) as e:
+            print(f"⚠️  Valor inválido o incorrecto ({e})") 
+    elif fields_options == "continente":
+        try:
+            new_continente = input(f"Ingrese el continente {continents}: ").strip().title()
+            # Verifica si el continente escrito por el usuario esta dentro de la lista de continentes, si no es así, ejecuta una excepción que captura el error
+            match = next(
+                    (continent for continent in continents if eliminar_tildes(new_continente).lower() == eliminar_tildes(continent).lower()), None  # Valor por defecto si no hay coincidencias
+                )
+
+            if match is None:
+                    raise ValueError("El continente no se encuentra dentro de las opciones")
+            
+        except (ValueError, TypeError) as e:
+            print(f"⚠️  Valores incorrectos o inválidos ({e})")
+            return
+        registers[index][fields_options] = match
+    else:
+        try: 
+            new_poblacion = int(input("Ingrese la cantidad de 'Población': ").strip())
+            new_superficie = int(input("Ingrese la cantidad de 'Superficie': ").strip())
+            # Verifica que los valores sean mayores a 0.
+            if new_poblacion < 0 or new_superficie < 0:
+                raise ValueError("Valores menores a 0.")
+
+            new_continente = input(f"Ingrese el continente {continents}: ").strip().title()
+            # Verifica si el continente escrito por el usuario esta dentro de la lista de continentes, si no es así, ejecuta una excepción que captura el error
+            match = next(
+                (continent for continent in continents if eliminar_tildes(new_continente).lower() == eliminar_tildes(continent).lower()), None  # Valor por defecto si no hay coincidencias
+            )
+
+            if match is None:
+                raise ValueError("El continente no se encuentra dentro de las opciones")
+        
+        except (ValueError, TypeError) as e:
+            print(f"⚠️  Valores incorrectos o inválidos ({e})")
+            return
+
+        registers[index]["poblacion"] = new_poblacion
+        registers[index]["superficie"] = new_superficie
+        registers[index]["continente"] = new_continente
+
+    fields = registers[0].keys()
+
+    try:
+        with open(path, mode="w", encoding="utf-8", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(registers)
+    except FileNotFoundError as e:
+        print(f"⚠️  Archivo no encontrado ({path}). ({e})")
+        return
+    except (IOError,OSError) as e:
+        print(f"⚠️  Un error ocurrió al escribir el archivo. ({e})")
+        return
+    except csv.Error as e:
+        print(f"⚠️  Error del módulo csv. ({e})")
+        return
+    except Exception as e:
+        print(f"⚠️  Error inesperado al escribir CSV. ({e})")
+        return
+    
+    print("✔️  País modificado con éxito.")
+    print("~"*console_size())
+    print(f"📍  {registers[index]["nombre"]}\nPoblación: {registers[index]["poblacion"]:,} habitantes\nSuperficie: {registers[index]["superficie"]:,} km²\nContinente: {registers[index]["continente"]}")
+    print("~"*console_size())
+
+
+def del_pais(path: str):
+    # Abre el CSV en modo Lectura y guarda los dict en registers en forma de lista
+    try:
+        with open(path, mode="r", encoding="utf-8", newline="") as file:
+            reader = csv.DictReader(file)
+            registers = list(reader)
+    except FileNotFoundError as e:
+        print(f"⚠️  Archivo no encontrado ({path}). ({e})")
+    except (IOError,OSError) as e:
+        print(f"⚠️  Un error ocurrió al leer el archivo. ({e})")
+    except csv.Error as e:
+            print(f"⚠️  Error del módulo csv. ({e})")
+            return
+    except Exception as e:
+            print(f"⚠️  Error inesperado al escribir CSV. ({e})")
+            return
+    
+    new_nombre = input("Ingrese el nombre del país a editar: ").strip().lower()
+
+    # Verifica si el input ingresado está vacío
+    if not new_nombre:
+        print("⚠️  Nombre vacío.")
+        return
+    
+    # Verifica si el país ingresado existe, utilizamos un flag para el index y verificar
+    index = None
+    for i, pais in enumerate(registers):
+        if eliminar_tildes(pais["nombre"].lower()) == new_nombre:
+            index = i
+            delete_pais = pais
+            break
+
+    # Si no se encontró un resultado, retorna y termina el proceso
+    if index is None:
+        print(f"⚠️  No se encontró ningun pais con ese nombre. ({new_nombre.title()})")
+        return
+    
+    print(f"Pais a eliminar:")
+    print("~"*console_size())
+    try:
+        print(f"📍  {delete_pais["nombre"]}\nPoblación: {int(delete_pais["poblacion"]):,} habitantes\nSuperficie: {int(delete_pais["superficie"]):,} km²\nContinente: {delete_pais["continente"]}")
+        print("~"*console_size())
+        verif_value = random.choice(list(delete_pais.values()))
+        
+        if eliminar_tildes(input(f"Ingrese el siguiente texto '{verif_value}' para eliminar el país: ").strip().lower()) != eliminar_tildes(verif_value.strip().lower()):
+            print(f"⚠️  El texto no coincide con '{verif_value}.")
+            return
+        
+        del registers[index]
+    except (ValueError,TypeError) as e:
+        print(f"⚠️  Ocurrió un error de valor. ({e})")
+        return
+    
+    fields = registers[0].keys()
+
+    try:
+        with open(path, mode="w", encoding="utf-8", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(registers)
+        print("✔️  País eliminado con éxito.")
+        return
+    except FileNotFoundError as e:
+        print(f"⚠️  Archivo no encontrado ({path}). ({e})")
+        return
+    except (IOError,OSError) as e:
+        print(f"⚠️  Un error ocurrió al escribir el archivo. ({e})")
+        return
+    except csv.Error as e:
+        print(f"⚠️  Error del módulo csv. ({e})")
+        return
+    except Exception as e:
+        print(f"⚠️  Error inesperado al escribir CSV. ({e})")
+        return
