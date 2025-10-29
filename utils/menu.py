@@ -4,7 +4,7 @@ def menu() -> str:
     """
     Devuelve la lista de opciones.
     """
-    options = ("Buscar país", "Filtrar países", "Ordenar países", "Mostrar estadísticas", "Salir")
+    options = ("Buscar país", "Filtrar países", "Ordenar países", "Mostrar estadísticas", "Opciones de Desarrollador", "Salir")
     print(" Gestión de Datos de Países ".center(console_size(), "-"))
     for i, option in enumerate(options):
         print(f"{i+1}. {option}")

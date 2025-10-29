@@ -9,7 +9,7 @@ def search_pais(data: list) -> str:
     Retorna:\n
         str: País con sus características (Población, Superficie, Continente).
     """
-
+    
     searched_pais = input("Ingrese el nombre del país: ").strip().lower()
     match_pais = [item for item in data if eliminar_tildes(searched_pais) == eliminar_tildes(item["nombre"]).lower()]
     if len(match_pais) == 0:
