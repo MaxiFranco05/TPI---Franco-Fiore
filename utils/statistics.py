@@ -1,3 +1,5 @@
+"""Cálculo y visualización de estadísticas a partir de la lista de países."""
+
 from utils.utils import console_size
 
 def statistics(data: list[dict]):
@@ -5,11 +7,13 @@ def statistics(data: list[dict]):
         Parámetros:\n
             data (list): Lista de paises en diccionarios.
     """
+    # Calcula promedios y extremos de población
     prom_pobl = sum(p["poblacion"] for p in data) / len(data)
     prom_superf = sum(p["superficie"] for p in data) / len(data)
     pais_mayor = max(data, key=lambda p: p["poblacion"])
     pais_menor = min(data, key=lambda p: p["poblacion"])
 
+    # Conteo por continente
     cant_por_continente = {}
     for pais in data:
         cont = pais["continente"]

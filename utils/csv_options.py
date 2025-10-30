@@ -1,4 +1,11 @@
-from utils.utils import console_size, eliminar_tildes
+"""Operaciones sobre el CSV de países (CRUD y utilidades relacionadas).
+
+Contiene funciones para leer y crear el CSV, así como para agregar, editar
+y eliminar registros. Valida entradas de usuario y maneja errores comunes
+del sistema de archivos y del módulo csv.
+"""
+
+from utils.utils import console_size, eliminar_tildes, clear_console
 import csv, os, time, random
 
 
@@ -8,6 +15,7 @@ def dev_options(data: list[dict], path: str):
         data (list[dict]): Lista con el contenido del CSV.
         path (str): Ruta del archivo CSV.
     """
+    # Opciones disponibles para mantenimiento del CSV
     options = ["Agregar país","Editar país","Eliminar país","Salir"]
     while True:
         print(" Opciones de Desarrollador ".center(console_size(), "-"))
@@ -20,22 +28,24 @@ def dev_options(data: list[dict], path: str):
             print("⚠️  Ingrese un número valido.")
             continue
     
+        # Si no hay datos, obliga a crear/agregar antes de editar/eliminar
         if not data and option not in (1, 4):
             print("⚠️  Primero ingrese datos al CSV o intente con uno nuevo.")
             option = 1
 
         match option:
-            case 1:
+            case 1:  # Creación
                 post_pais(path)
-            case 2:
+            case 2:  # Edición
                 put_pais(path)
-            case 3:
+            case 3:  # Eliminación
                 del_pais(path)
             case 4:
                 break
             case _:
                 print("⚠️  Ingrese una opción válida.")
         input("Presione Enter para continuar...")
+        clear_console()
 
 
 def read_csv(path: str) -> list:
@@ -45,6 +55,7 @@ def read_csv(path: str) -> list:
     Retorna:\n
         list: Lista del contenido del CSV en diccionarios.
     """
+    # Inicializa la lista de países
     paises = []
 
     if not isinstance(path, str):
@@ -85,6 +96,7 @@ def create_csv(path: str):
     with open(path, mode="w", encoding="utf-8", newline="") as file:
         headers = ["nombre","poblacion","superficie","continente"]
         writer = csv.DictWriter(file, fieldnames=headers)
+        # Escribe encabezados del CSV
         writer.writeheader()
         for i in range(0, 101, 20):
             print("=" * round((i/100) * console_size() if not i == 0 else 1))
@@ -103,6 +115,7 @@ def post_pais(path: str):
     # Lista de columnas
     headers = ["nombre", "poblacion", "superficie", "continente"]
     # Lista de continentes
+    # Conjunto de continentes válidos
     continents = ("América del Sur", "América del Norte", "África", "Asia", "Oceanía")
     # Abre el CSV en modo Escritura y Lectura (a+)
     with open(path, mode="a+", encoding="utf-8", newline="") as file:
@@ -110,6 +123,7 @@ def post_pais(path: str):
         reader = csv.DictReader(file)
         new_nombre = input("Ingrese el nombre del país a agregar: ").strip().title()
 
+        # Verifica si el input ingresado está vacío
         # Verifica si el input ingresado está vacío
         if not new_nombre:
             print("⚠️  Nombre vacío.")
@@ -128,7 +142,7 @@ def post_pais(path: str):
                 raise ValueError("Valores menores a 0.")
 
             new_continente = input(f"Ingrese el continente {continents}: ").strip().title()
-            # Verifica si el continente escrito por el usuario esta dentro de la lista de continentes, si no es así, ejecuta una excepción que captura el error
+            # Verifica si el continente escrito por el usuario esta dentro de la lista de continentes
             match = next(
                 (continent for continent in continents if eliminar_tildes(new_continente).lower() == eliminar_tildes(continent).lower()), None  # Valor por defecto si no hay coincidencias
             )
@@ -141,6 +155,7 @@ def post_pais(path: str):
             return
 
         # Se asegura de escribir en el final y que haya un salto de línea antes si hace falta
+        # Posiciona el puntero al final para agregar registro
         file.seek(0, os.SEEK_END)
         if file.tell() > 0:
             # Lee último carácter y si no es '\n' escribirlo
@@ -181,6 +196,7 @@ def put_pais(path: str):
         path (str): Ruta del archivo CSV.
     """
     # Lista de continentes
+    # Conjunto de continentes válidos
     continents = ("América del Sur", "América del Norte", "África", "Asia", "Oceanía")
     options = ("poblacion", "superficie", "continente", "todo")
 
@@ -220,6 +236,7 @@ def put_pais(path: str):
         return
     
     # Consulta el campo especifico a modificar o todos
+    # Consulta el campo específico a modificar o todos
     fields_options = input(f"Ingrese el campo que quiere modificar ({"/".join(options)}): ").strip().lower()
     # Comprueba si el input corresponde a las opciones
     if fields_options not in options:
@@ -272,6 +289,7 @@ def put_pais(path: str):
         registers[index]["superficie"] = new_superficie
         registers[index]["continente"] = new_continente
 
+    # Reescribe el CSV con los cambios
     fields = registers[0].keys()
 
     try:
@@ -340,6 +358,7 @@ def del_pais(path: str):
     try:
         print(f"📍  {delete_pais["nombre"]}\nPoblación: {int(delete_pais["poblacion"]):,} habitantes\nSuperficie: {int(delete_pais["superficie"]):,} km²\nContinente: {delete_pais["continente"]}")
         print("~"*console_size())
+        # Toma un valor aleatorio del registro para confirmar eliminación
         verif_value = random.choice(list(delete_pais.values()))
         
         if eliminar_tildes(input(f"Ingrese el siguiente texto '{verif_value}' para eliminar el país: ").strip().lower()) != eliminar_tildes(verif_value.strip().lower()):
@@ -351,6 +370,7 @@ def del_pais(path: str):
         print(f"⚠️  Ocurrió un error de valor. ({e})")
         return
     
+    # Reescribe el CSV con el registro eliminado
     fields = registers[0].keys()
 
     try:

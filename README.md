@@ -62,13 +62,14 @@ Seleccione la opción deseada ingresando el número correspondiente y siga las i
 ### **Menú Principal**
 
 ```
-========== Gestión de Datos de Países ==========
+-------------------------- Gestión de Datos de Países --------------------------
 1. Buscar país
 2. Filtrar países
 3. Ordenar países
 4. Mostrar estadísticas
-5. Salir
-==================================================
+5. Opciones de Desarrollador
+6. Salir
+--------------------------------------------------------------------------------
 Ingrese una opcion:
 ```
 
@@ -101,8 +102,8 @@ Continente: América del Sur
 **Entrada:**
 ```
 Ingrese una opcion: 2
-Selecciona la opción por la cual filtrar ('continente', 'poblacion', 'superficie'): continente
-Ingrese el continente (Asia, America Del Sur, America Del Norte, Africa, Europa): europa
+Selecciona la opción por la cual filtrar (Continente - Poblacion - Superficie): continente
+Ingrese el continente (Asia - America Del Sur - America Del Norte - Africa - Europa): europa
 ```
 
 **Salida:**
@@ -129,9 +130,9 @@ Superficie: 643801 km²
 **Entrada:**
 ```
 Ingrese una opcion: 2
-Selecciona la opción por la cual filtrar ('continente', 'poblacion', 'superficie'): poblacion
-Ingrese el primer valor: 40000000
-Ingrese el segundo valor: 50000000
+Selecciona la opción por la cual filtrar (Continente - Poblacion - Superficie): poblacion
+Ingrese el valor minimo: 40000000
+Ingrese el valor máximo: 50000000
 ```
 
 **Salida:**
@@ -154,8 +155,8 @@ Argelia - 45,606,480 habitantes
 **Entrada:**
 ```
 Ingrese una opcion: 3
-Selecciona la opción por la cual ordenar ('nombre', 'poblacion', 'superficie'): poblacion
-Selecciona el orden por el cual ordenar(Asc - Desc): desc
+Selecciona la opción por la cual ordenar ('nombre','poblacion','superficie'): poblacion
+Selecciona el orden por el cual ordenar (Asc - Desc): desc
 ```
 
 **Salida:**
@@ -182,8 +183,8 @@ Continente: América del Norte
 **Entrada:**
 ```
 Ingrese una opcion: 3
-Selecciona la opción por la cual ordenar ('nombre', 'poblacion', 'superficie'): superficie
-Selecciona el orden por el cual ordenar(Asc - Desc): asc
+Selecciona la opción por la cual ordenar ('nombre','poblacion','superficie'): superficie
+Selecciona el orden por el cual ordenar (Asc - Desc): asc
 ```
 
 **Salida:**
@@ -233,11 +234,11 @@ Ingrese una opcion: 4
 
 ---
 
-### **5. Salir**
+### **6. Salir**
 
 **Entrada:**
 ```
-Ingrese una opcion: 5
+Ingrese una opcion: 6
 ```
 
 **Salida:**
@@ -294,20 +295,21 @@ Ingrese una opcion: 5
 ```
 TPI-Franco-Fiore/
 │
-├── main.py                 # Punto de entrada del programa
-├── paises_mundo.csv        # Dataset con información de países
-├── README.md               # Documentación del proyecto
-├── .gitignore             # Archivos excluidos del repositorio
+├── main.py                  # Punto de entrada del programa
+├── README.md                # Documentación del proyecto
+├── data/
+│   └── paises_mundo.csv     # Dataset con información de países
 │
-└── utils/                  # Módulo de utilidades
+└── utils/                   # Módulo de utilidades
     ├── __init__.py
-    ├── menu.py            # Gestión del menú principal
-    ├── reader.py          # Lectura del archivo CSV
-    ├── searcher.py        # Búsqueda de países
-    ├── filter.py          # Filtrado de datos
-    ├── sorter.py          # Ordenamiento de datos
-    ├── statistics.py      # Cálculo de estadísticas
-    └── utils.py           # Funciones auxiliares
+    ├── csv_options.py       # Lectura/creación CSV y CRUD (agregar/editar/eliminar)
+    ├── filter.py            # Filtrado de datos
+    ├── menu.py              # Gestión del menú principal
+    ├── paginator.py         # Paginación en consola
+    ├── searcher.py          # Búsqueda de países
+    ├── sorter.py            # Ordenamiento de datos
+    └── statistics.py        # Cálculo de estadísticas
+
 ```
 
 ### **Principios de Diseño**

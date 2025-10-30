@@ -1,4 +1,6 @@
-from utils.utils import console_size
+"""Paginador de resultados para listados de países en consola."""
+
+from utils.utils import console_size, clear_console
 
 def paginar(data: list[dict], page_size: int = 5, ):
     """
@@ -6,6 +8,7 @@ def paginar(data: list[dict], page_size: int = 5, ):
         data (list[dict]): data de países o elementos a mostrar.
         page_size (int): Cantidad de elementos por página (por defecto, 10).
     """
+    # Valida que existan datos para paginar
     if not data:
         print("⚠️  No hay datos para mostrar.")
         return
@@ -16,15 +19,15 @@ def paginar(data: list[dict], page_size: int = 5, ):
     total_paginas = (total + page_size - 1) // page_size  
 
     while inicio < total:
+        clear_console()
         fin = inicio + page_size
         bloque = data[inicio:fin]
-
     
         print("\n" + " Resultados ".center(console_size(), "~"))
         print(f"Página {pagina}/{total_paginas} | Mostrando {inicio + 1}-{min(fin, total)} de {total} países".center(console_size()))
         print("~" * console_size())
 
-
+        # Recorre y muestra los elementos del bloque actual
         for i, item in enumerate(bloque, start=inicio + 1):
             nombre = item.get("nombre", "Desconocido")
             poblacion = item.get("poblacion", "N/D")
@@ -34,7 +37,6 @@ def paginar(data: list[dict], page_size: int = 5, ):
             print(f"     Población: {poblacion:,} habitantes")
             print(f"     Superficie: {superficie:,} km²")
             print(f"     Continente: {continente}")
-
         
         if fin >= total:
             print("\n📘 Fin de la lista. Total de países mostrados:", total)
@@ -44,13 +46,12 @@ def paginar(data: list[dict], page_size: int = 5, ):
         print(" ➡️  Enter = siguiente página | 🔙 'a' = anterior | ❌ 's' = salir ".center(console_size()))
         print("~" * console_size())
 
+        # Captura navegación del paginador
         opcion = input("Seleccione una opción: ").lower().strip()
-
     
         if opcion == 's':
             print("\n👋  Saliendo del paginador...\n")
             break
-
 
         elif opcion == 'a':
             if pagina > 1:
@@ -62,7 +63,6 @@ def paginar(data: list[dict], page_size: int = 5, ):
                 print("\n⚠️  Ya estás en la primera página.")
                 input("Presione Enter para continuar...")
                 continue
-
     
         elif opcion == '':
             pagina += 1

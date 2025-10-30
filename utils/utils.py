@@ -1,3 +1,5 @@
+"""Utilidades generales: normalización de texto y utilidades de consola."""
+
 import shutil, os
 
 def eliminar_tildes(texto:str):
@@ -31,4 +33,5 @@ def console_size():
         return 50
     
 def clear_console():
+    # Limpia la consola según el sistema operativo
     os.system('cls' if os.name == 'nt' else 'clear')
