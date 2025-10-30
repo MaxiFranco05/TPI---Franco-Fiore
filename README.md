@@ -85,12 +85,12 @@ Ingrese el nombre del país: argentina
 
 **Salida:**
 ```
-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 📍  Argentina
 Población: 45,773,884 habitantes
 Superficie: 2,780,400 km²
 Continente: América del Sur
-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 ```
 
 ---
@@ -108,7 +108,7 @@ Ingrese el continente (Asia - America Del Sur - America Del Norte - Africa - Eur
 
 **Salida:**
 ```
-~~~~~~~~~~~~~~~~~~~~~~~~~~ Paises filtrados por Europa ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~ Paises filtrados por Europa ~~~~~~~~~~~~~~~~~~~~~~~~~
 📍  Rusia
 Poblacion: 144444359 habitantes
 Superficie: 17098242 km²
@@ -122,7 +122,7 @@ Superficie: 242495 km²
 Poblacion: 64756584 habitantes
 Superficie: 643801 km²
 ...
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 #### **2.2 Filtrar por Rango de Población**
@@ -137,13 +137,13 @@ Ingrese el valor máximo: 50000000
 
 **Salida:**
 ```
-~~~~~~~~~~~~~~~~~~~~~~~~~~ Paises filtrados por Poblacion (entre 40,000,000 y 50,000,000) ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~ Paises filtrados por Poblacion (entre 40,000,000 y 50,000,000) ~~~~~~~~~~~
 España - 47,519,628 habitantes
 Argentina - 45,773,884 habitantes
 Uganda - 48,582,334 habitantes
 Argelia - 45,606,480 habitantes
 ...
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 ---
@@ -161,7 +161,7 @@ Selecciona el orden por el cual ordenar (Asc - Desc): desc
 
 **Salida:**
 ```
-~~~~~~~~~~~~~~~~~~~~~~~~~~ Paises ordenados por Poblacion (en orden Desc) ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~ Paises ordenados por Poblacion (en orden Desc) ~~~~~~~~~~~~~~~~~~~~
 📍  País: India
 Población: 1,428,627,663
 Superficie: 3,287,263
@@ -175,8 +175,7 @@ Población: 339,996,563
 Superficie: 9,833,517
 Continente: América del Norte
 ...
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-```
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #### **3.2 Ordenar por Superficie (Ascendente)**
 
@@ -189,7 +188,7 @@ Selecciona el orden por el cual ordenar (Asc - Desc): asc
 
 **Salida:**
 ```
-~~~~~~~~~~~~~~~~~~~~~~~~~~ Paises ordenados por Superficie (en orden Asc) ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~ Paises ordenados por Superficie (en orden Asc) ~~~~~~~~~~~~~~~~~~~
 📍  País: Ciudad del Vaticano
 Población: 825
 Superficie: 0
@@ -203,7 +202,7 @@ Población: 12,780
 Superficie: 21
 Continente: Oceanía
 ...
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 ---
