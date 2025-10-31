@@ -176,7 +176,7 @@ Superficie: 9,833,517
 Continente: América del Norte
 ...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+```
 #### **3.2 Ordenar por Superficie (Ascendente)**
 
 **Entrada:**
